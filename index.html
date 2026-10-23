@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Angelou Fiel | Web &amp; IoT Software Developer</title>
+<meta name="description" content="Angelou Fiel, BSIT student and software developer in Pagadian City, Philippines. Business systems, web and mobile apps, and ESP32 IoT systems, built and tested.">
+<meta name="theme-color" content="#0F1E33">
+<meta property="og:title" content="Angelou Fiel | Web &amp; IoT Software Developer">
+<meta property="og:description" content="Real, tested systems: library, marketplace, IoT monitoring, vending and more.">
+<meta property="og:image" content="me.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22#0F1E33%22/%3E%3Cg transform=%22translate%2812 12%29 scale%281.6667%29%22 fill=%22none%22 stroke=%22#2BBFB0%22 stroke-width=%221.9%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%225%22 y=%225%22 width=%2214%22 height=%2214%22 rx=%222.6%22/%3E%3Cpath d=%22M9 2.5v2.5M15 2.5v2.5M9 19v2.5M15 19v2.5M2.5 9H5M2.5 15H5M19 9h2.5M19 15h2.5%22/%3E%3Cpath d=%22M10.2 9.8 8.3 12l1.9 2.2M13.8 9.8l1.9 2.2-1.9 2.2%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Icons: Lucide (ISC license, lucide.dev). Font: Archivo (SIL Open Font License, see assets/fonts). -->
+<style>
+@font-face{font-family:'Archivo';src:url(assets/fonts/archivo-variable.woff2) format('woff2-variations'),url(assets/fonts/archivo-variable.woff2) format('woff2');font-weight:100 900;font-stretch:62% 125%;font-style:normal;font-display:swap;}
+:root{
+  --ink:#0F1E33; --board:#152A45; --bline:#24405F; --deep:#0B1728;
+  --paper:#F3F5F8; --white:#FFFFFF; --line:#DCE3EC;
+  --muted:#556479; --muted-d:#A3B4CB;
+  --teal:#2BBFB0; --teal-ink:#0B7A70; --teal-soft:#E2F4F1;
+  --amber:#F2B33D;
+  --hl-from:#1E5BB8; --hl-to:#0E9384;
+  --amber-soft:#FDF2DC; --amber-ink:#9A6206;
+  --r-lg:18px; --r-md:12px;
+  --shadow:0 1px 2px rgba(15,30,51,.06),0 10px 28px rgba(15,30,51,.08);
+  --shadow-lg:0 2px 6px rgba(15,30,51,.08),0 24px 56px rgba(15,30,51,.18);
+  --font:'Archivo',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{font-family:var(--font);font-size:17px;line-height:1.62;color:var(--ink);background:var(--paper);overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;color:inherit;}
+ul,ol{list-style:none;}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:8px;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+h1,h2,h3{font-stretch:118%;font-weight:760;line-height:1.06;letter-spacing:-.016em;}
+h1{font-size:clamp(2.55rem,5.6vw,4.4rem);}
+h2{font-size:clamp(1.9rem,3.6vw,2.85rem);}
+h3{font-size:1.18rem;font-stretch:108%;font-weight:680;line-height:1.28;letter-spacing:-.006em;}
+p{max-width:68ch;}
+.lead{font-size:1.1rem;color:var(--muted);}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none;display:block;}
+.tlink{color:var(--teal-ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;}
+
+/* sections */
+section{padding:104px 0;}
+section[id],header[id]{scroll-margin-top:68px;}
+.bg-white{background:var(--white);}
+.bg-paper{background:var(--paper);}
+.on-dark{background-color:var(--ink);color:#fff;}
+.on-dark .lead,.on-dark p{color:var(--muted-d);}
+.perf{background-image:radial-gradient(rgba(163,180,203,.15) 1px,transparent 1.3px);background-size:22px 22px;}
+.head{display:grid;grid-template-columns:1.2fr 1fr;gap:20px 64px;align-items:end;margin-bottom:56px;}
+.head h2{max-width:17ch;}
+@media(max-width:860px){section{padding:76px 0;}.head{grid-template-columns:1fr;margin-bottom:38px;}}
+@media(max-width:600px){.wrap{padding:0 18px;}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:var(--r-md);font-weight:640;font-size:.98rem;line-height:1.2;border:1.5px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
+.btn .ic{width:18px;height:18px;}
+.btn-solid{background:var(--ink);color:#fff;}
+.btn-solid:hover{background:#1D3557;}
+.btn-line{border-color:var(--ink);color:var(--ink);background:transparent;}
+.btn-line:hover{background:var(--ink);color:#fff;}
+.btn-teal,.on-dark .btn-solid{background:var(--teal);color:var(--ink);}
+.btn-teal:hover,.on-dark .btn-solid:hover{background:#56D3C6;}
+.on-dark .btn-line{border-color:rgba(255,255,255,.55);color:#fff;}
+.on-dark .btn-line:hover{background:#fff;color:var(--ink);}
+.btns{display:flex;flex-wrap:wrap;gap:12px;}
+
+/* welcome */
+body.loading{overflow:hidden;}
+#welcome{position:fixed;inset:0;z-index:100;display:grid;place-items:center;color:#fff;overflow:hidden;background-color:var(--ink);background-image:radial-gradient(640px 420px at 50% 42%,rgba(43,191,176,.16),transparent 70%),radial-gradient(rgba(163,180,203,.14) 1px,transparent 1.3px);background-size:auto,22px 22px;transition:transform .9s cubic-bezier(.77,0,.18,1),opacity .4s .6s;}
+#welcome.done{transform:translateY(-100%);opacity:0;pointer-events:none;}
+.wbox{position:relative;text-align:center;padding:24px;}
+.wmark{width:96px;height:96px;margin:0 auto 28px;position:relative;display:grid;place-items:center;opacity:0;transform:scale(.7);animation:wpop .7s .1s cubic-bezier(.2,.9,.3,1.25) forwards;}
+.wmark svg.ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);}
+.wmark circle{fill:none;stroke-width:2.6;stroke-linecap:round;}
+.wmark .track{stroke:rgba(255,255,255,.12);}
+.wmark .arc{stroke:var(--teal);stroke-dasharray:289;stroke-dashoffset:289;animation:wdraw 2.6s .3s cubic-bezier(.6,0,.2,1) forwards;}
+.wmark .wicon{width:42px;height:42px;color:var(--teal);filter:drop-shadow(0 0 12px rgba(43,191,176,.45));}
+@keyframes wdraw{to{stroke-dashoffset:0;}}
+@keyframes wpop{to{opacity:1;transform:none;}}
+.wgreet{font-stretch:122%;font-weight:800;font-size:clamp(2rem,6vw,3.3rem);letter-spacing:-.02em;line-height:1.25;height:1.25em;}
+.wgreet .wword{display:inline-block;opacity:0;transform:translateY(16px);animation:wup .55s forwards;}
+@keyframes wup{to{opacity:1;transform:none;}}
+.wname{margin-top:12px;color:var(--muted-d);font-size:1.02rem;line-height:1.5;opacity:0;animation:wpop .6s .9s forwards;transform:none;}
+.wname b{color:#fff;font-weight:650;}
+.wcap{margin:18px auto 0;max-width:30rem;color:#E6EDF6;font-size:clamp(1.05rem,2.6vw,1.25rem);font-weight:500;opacity:0;transform:translateY(14px);animation:wup .8s 3.4s forwards;}
+.wbar{width:min(240px,60vw);height:3px;border-radius:3px;background:rgba(255,255,255,.12);margin:30px auto 0;overflow:hidden;opacity:0;animation:wpop .4s .5s forwards;}
+.wbar i{display:block;height:100%;width:0;background:var(--teal);animation:wfill 6.3s .4s linear forwards;}
+@keyframes wfill{to{width:100%;}}
+.wskip{position:absolute;right:20px;bottom:20px;background:transparent;border:1px solid rgba(255,255,255,.3);color:#D5DFEC;border-radius:999px;padding:8px 18px;font-size:.85rem;cursor:pointer;}
+.wskip:hover{border-color:#fff;color:#fff;}
+
+/* top bar */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:60;background:var(--teal);}
+.skip{position:absolute;left:-999px;top:8px;z-index:200;background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;}
+.skip:focus{left:12px;}
+#nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,box-shadow .3s;}
+#nav.scrolled,#nav.menu-open{background:rgba(255,255,255,.93);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 1px 0 var(--line);}
+.navrow{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1180px;margin:0 auto;padding:14px 24px;}
+.logo{display:flex;align-items:center;gap:11px;font-weight:720;font-stretch:112%;font-size:1.06rem;letter-spacing:-.01em;}
+.logo-mark{width:36px;height:36px;border-radius:10px;background:var(--ink);color:var(--teal);display:grid;place-items:center;flex:none;}
+.logo-mark .ic{width:22px;height:22px;}
+.on-dark .logo-mark{background:var(--board);border:1px solid var(--bline);}
+.navlinks{display:flex;align-items:center;gap:26px;}
+.navlinks a:not(.btn){font-size:.95rem;color:var(--muted);font-weight:540;padding:6px 0;}
+.navlinks a:not(.btn):hover{color:var(--ink);}
+.navlinks a.active{color:var(--ink)!important;box-shadow:inset 0 -2px 0 var(--teal);}
+.navlinks .btn{padding:10px 18px;font-size:.93rem;}
+.menu-btn{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:4px;}
+.menu-btn span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:.25s;}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.mnav{display:none;}
+@media(max-width:920px){
+  .navlinks a:not(.btn),.navlinks .btn{display:none;}
+  .menu-btn{display:flex;}
+  .mnav{display:grid;max-height:0;overflow:hidden;transition:max-height .35s ease;background:#fff;}
+  .mnav.open{max-height:520px;border-bottom:1px solid var(--line);}
+  .mnav a{padding:15px 24px;border-top:1px solid var(--line);font-weight:600;}
+  .mnav a:hover{color:var(--teal-ink);background:var(--paper);}
+}
+
+/* hero */
+.hero{padding:148px 0 88px;background:var(--paper);}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:.92rem;font-weight:560;background:#fff;border:1px solid var(--line);padding:7px 15px 7px 13px;border-radius:999px;}
+.led{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px rgba(43,191,176,.22);flex:none;}
+.hero h1{margin:22px 0 22px;max-width:13.5ch;}
+.hero h1 .hl{color:var(--teal-ink);white-space:nowrap;transition:opacity .3s;}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .hero h1 .hl{background:linear-gradient(100deg,var(--hl-from),var(--hl-to));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;}
+}
+.hero h1 .hl.out{opacity:0;transition:opacity .25s;}
+.hero .lead{max-width:34rem;font-size:1.16rem;}
+.hero .btns{margin-top:32px;}
+.proof{display:flex;flex-wrap:wrap;gap:12px 30px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:.93rem;}
+.proof li{display:flex;align-items:center;gap:9px;}
+.proof .ic{color:var(--teal-ink);width:20px;height:20px;}
+.hero-photo{position:relative;justify-self:end;width:100%;max-width:430px;isolation:isolate;}
+.hero-photo::before{content:"";position:absolute;inset:20px -20px -20px 20px;border:1.5px solid rgba(11,122,112,.32);border-radius:26px;z-index:-1;}
+.hero-photo img{width:100%;height:auto;aspect-ratio:7/9;object-fit:cover;object-position:center top;border-radius:22px;box-shadow:var(--shadow-lg);background:#dfe5ec;}
+@media(max-width:920px){
+  .hero{padding:118px 0 64px;}
+  .hero-grid{grid-template-columns:1fr;gap:52px;}
+  .hero-photo{justify-self:start;max-width:380px;}
+  .hero-photo::before{inset:14px -14px -14px 14px;}
+}
+@media(max-width:600px){
+  .hero-grid{gap:40px;}
+  .hero-photo{max-width:240px;}
+  .hero-photo::before{inset:10px -10px -10px 10px;border-radius:24px;}
+}
+
+/* signal path */
+.signal{padding:92px 0;}
+.sig-head{display:grid;grid-template-columns:1.2fr 1fr;gap:20px 64px;align-items:end;margin-bottom:64px;}
+.sig-head h2{max-width:15ch;}
+.sig{position:relative;}
+.sig-path{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;position:relative;z-index:1;}
+.trace{position:absolute;left:10%;right:10%;top:31px;height:2px;background:var(--bline);}
+.pulse{position:absolute;top:26px;left:10%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(242,179,61,.22),0 0 18px 4px rgba(242,179,61,.45);opacity:0;animation:pulseX 6s 1.2s linear infinite;}
+@keyframes pulseX{0%{left:10%;opacity:0;}4%{opacity:1;}66%{left:90%;opacity:1;}72%{left:90%;opacity:0;}100%{left:90%;opacity:0;}}
+.node{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;}
+.nd{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--board);border:1.5px solid var(--bline);color:var(--teal);margin-bottom:12px;animation:nodeOn 6s linear infinite;}
+.nd .ic{width:26px;height:26px;}
+.node:nth-child(1) .nd{animation-delay:1.2s;} .node:nth-child(2) .nd{animation-delay:2.2s;} .node:nth-child(3) .nd{animation-delay:3.2s;} .node:nth-child(4) .nd{animation-delay:4.2s;} .node:nth-child(5) .nd{animation-delay:5.2s;}
+@keyframes nodeOn{0%{border-color:var(--teal);box-shadow:0 0 0 6px rgba(43,191,176,.16),0 0 24px rgba(43,191,176,.35);}18%,100%{border-color:var(--bline);box-shadow:none;}}
+.node div{display:flex;flex-direction:column;align-items:center;gap:4px;}
+.node b{font-stretch:112%;font-weight:700;font-size:1.06rem;}
+.node small{font-size:.9rem;color:var(--muted-d);max-width:15ch;line-height:1.45;}
+body.loading .pulse,body.loading .nd{animation-play-state:paused;}
+@media(max-width:860px){
+  .signal{padding:76px 0;}
+  .sig-head{grid-template-columns:1fr;margin-bottom:44px;}
+  .sig-path{grid-template-columns:1fr;gap:26px;}
+  .node{flex-direction:row;align-items:center;text-align:left;gap:16px;}
+  .nd{margin:0;width:56px;height:56px;}
+  .node div{align-items:flex-start;}
+  .node small{max-width:none;}
+  .trace{left:27px;right:auto;top:28px;bottom:28px;width:2px;height:auto;}
+  .pulse{left:27px;top:28px;margin-left:-5px;animation-name:pulseY;}
+  @keyframes pulseY{0%{top:28px;opacity:0;}4%{opacity:1;}66%{top:calc(100% - 34px);opacity:1;}72%{opacity:0;}100%{top:calc(100% - 34px);opacity:0;}}
+}
+
+/* pain points: each problem is a ticket whose tear-off stub is the fix */
+.pains{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.pain{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:18px;box-shadow:0 1px 2px rgba(15,30,51,.04),0 14px 34px rgba(15,30,51,.07);}
+@supports (grid-template-rows:subgrid){.pain{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:0;}}
+.pain-top{flex:1;padding:26px 24px 22px;}
+.pic{width:44px;height:44px;border-radius:12px;background:var(--amber-soft);color:var(--amber-ink);display:grid;place-items:center;margin-bottom:18px;}
+.pic .ic{width:22px;height:22px;}
+.pain h3{font-size:1.12rem;line-height:1.2;margin-bottom:8px;}
+.pain-top p{color:var(--muted);font-size:.95rem;line-height:1.55;}
+.pain-fix{position:relative;display:flex;gap:11px;align-items:flex-start;padding:16px 24px 20px;background:var(--teal-soft);border-top:1.5px dashed rgba(11,122,112,.38);border-radius:0 0 17px 17px;color:var(--ink);font-weight:620;font-size:.95rem;line-height:1.45;}
+.pain-fix::before,.pain-fix::after{content:"";position:absolute;top:-11px;width:20px;height:20px;border-radius:50%;background:var(--white);border:1px solid var(--line);}
+.pain-fix::before{left:-11px;clip-path:inset(0 0 0 50%);}
+.pain-fix::after{right:-11px;clip-path:inset(0 50% 0 0);}
+.pain-fix .ic{flex:none;width:22px;height:22px;padding:4px;border-radius:50%;background:var(--teal);color:var(--ink);stroke-width:3;}
+.fixbar{margin-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px 28px;padding:20px 22px 20px 26px;border-radius:18px;background:var(--ink);color:#fff;}
+.fixbar p{display:flex;gap:12px;align-items:center;font-weight:560;}
+.fixbar p .ic{flex:none;width:24px;height:24px;color:var(--teal);}
+@media(max-width:1000px){.pains{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){
+  .pains{grid-template-columns:1fr;gap:16px;}
+  .pain-top{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:20px 20px 18px;}
+  .pic{margin-bottom:0;}
+  .pain h3{font-size:1.06rem;margin:2px 0 6px;}
+  .pain-fix{padding:14px 20px 16px;}
+  .fixbar{padding:20px;}
+  .fixbar .btn{width:100%;}
+}
+
+/* services */
+.svc{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;}
+.svc li{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:30px 0;border-top:1px solid var(--line);}
+.svc li:nth-last-child(-n+2){border-bottom:1px solid var(--line);}
+.svc .sic{width:52px;height:52px;border-radius:14px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--teal-ink);}
+.svc h3{margin-bottom:6px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;}
+.svc p{color:var(--muted);font-size:.98rem;}
+.for{font-family:var(--font);font-stretch:100%;font-size:.78rem;font-weight:650;letter-spacing:0;color:var(--teal-ink);background:var(--teal-soft);border-radius:999px;padding:3px 10px;}
+@media(max-width:800px){.svc{grid-template-columns:1fr;}.svc li:nth-last-child(2){border-bottom:0;}}
+
+/* work */
+.work-head{margin-bottom:44px;}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.fchip{background:transparent;border:1px solid var(--bline);color:var(--muted-d);padding:8px 17px;border-radius:999px;font-size:.92rem;font-weight:560;cursor:pointer;transition:.2s;}
+.fchip:hover{color:#fff;border-color:#3D5E84;}
+.fchip.on{background:#fff;color:var(--ink);border-color:#fff;}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+.pcard{background:var(--board);border:1px solid var(--bline);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;}
+.pcard.hide{display:none!important;}
+.pmedia{padding:14px 14px 0;}
+.pshot{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.06);padding:0;cursor:zoom-in;background:var(--deep);}
+.pshot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .25s;}
+.pshot:hover img{transform:scale(1.03);}
+.pshot img.swap{opacity:0;}
+.scount{position:absolute;left:12px;bottom:12px;background:rgba(11,23,40,.88);color:#fff;font-size:.78rem;font-weight:600;padding:5px 11px;border-radius:999px;}
+.view{position:absolute;right:12px;bottom:12px;background:var(--teal);color:var(--ink);font-size:.8rem;font-weight:680;padding:6px 13px;border-radius:999px;opacity:0;transform:translateY(4px);transition:.25s;}
+.pshot:hover .view,.pshot:focus-visible .view{opacity:1;transform:none;}
+.pshot.empty{display:grid;place-items:center;cursor:default;color:var(--muted-d);}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px;}
+.thumbs button{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;border:1.5px solid transparent;padding:0;cursor:pointer;background:var(--deep);opacity:.62;transition:.2s;}
+.thumbs button.on,.thumbs button:hover{opacity:1;border-color:var(--teal);}
+.thumbs img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.thumbs .more{position:absolute;inset:0;display:grid;place-items:center;background:rgba(11,23,40,.7);color:#fff;font-weight:700;font-stretch:112%;}
+.pbody{padding:22px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.pbody .ptype{font-size:.84rem;font-weight:620;color:var(--teal);}
+.pbody h3{color:#fff;font-size:1.34rem;}
+.pbody > p{font-size:.97rem;}
+.psr-wrap{border:1px solid var(--bline);border-radius:12px;margin-top:4px;}
+.psr-wrap summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:11px 14px;font-size:.9rem;font-weight:620;color:#fff;}
+.psr-wrap summary::-webkit-details-marker{display:none;}
+.psr-wrap summary .ic{width:18px;height:18px;color:var(--teal);transition:transform .25s;}
+.psr-wrap[open] summary .ic{transform:rotate(180deg);}
+.psr{display:grid;gap:10px;padding:0 14px 14px;}
+.psr b{display:block;font-size:.8rem;font-weight:680;margin-bottom:2px;}
+.psr .pr b{color:#F4A8A8;} .psr .rs b{color:var(--teal);}
+.psr p{font-size:.92rem;}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:10px;}
+.tags li{font-size:.78rem;color:#C9D6E6;border:1px solid var(--bline);border-radius:999px;padding:4px 11px;}
+.pcard.phone .pshot{background:linear-gradient(160deg,#1B3352,var(--deep));}
+.pcard.phone .pshot img{object-fit:contain;object-position:center top;padding-top:14px;}
+.pcard.phone .thumbs img{object-fit:contain;}
+@media(min-width:1000px){
+  .pcard.feat{grid-column:1/-1;display:grid;grid-template-columns:1.45fr 1fr;}
+  .pcard.feat .pmedia{padding:18px 0 18px 18px;}
+  .pcard.feat .pbody{padding:30px 34px;justify-content:center;}
+  .pcard.feat h3{font-size:1.85rem;}
+}
+@media(max-width:860px){.pgrid{grid-template-columns:1fr;}}
+
+/* skills spec sheet */
+.spec{border-bottom:1px solid var(--line);}
+.spec-row{display:grid;grid-template-columns:230px 1fr 1.15fr;gap:12px 44px;padding:28px 0;border-top:1px solid var(--line);align-items:start;}
+.spec-row p{color:var(--muted);font-size:.98rem;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chips li{font-size:.83rem;font-weight:520;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:5px 12px;}
+@media(max-width:900px){.spec-row{grid-template-columns:1fr;gap:10px;}}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;position:relative;}
+.steps::before{content:"";position:absolute;top:23px;left:24px;right:24px;height:2px;background:var(--line);}
+.steps li{position:relative;}
+.num{width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid var(--teal-ink);color:var(--teal-ink);display:grid;place-items:center;font-weight:740;font-stretch:112%;font-size:1.05rem;margin-bottom:20px;position:relative;z-index:1;}
+.steps h3{margin-bottom:6px;}
+.steps p{color:var(--muted);font-size:.97rem;}
+@media(max-width:860px){.steps{grid-template-columns:1fr;gap:28px;}.steps::before{left:23px;right:auto;top:24px;bottom:24px;width:2px;height:auto;}.steps li{padding-left:72px;}.num{position:absolute;left:0;top:0;margin:0;}}
+
+/* about */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:center;}
+.about-photo{position:relative;}
+.about-photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 12%;border-radius:22px;box-shadow:var(--shadow);}
+.about-photo .fb{display:none;aspect-ratio:4/5;border-radius:22px;background:var(--ink);color:var(--teal);place-items:center;}
+.about-photo .fb .ic{width:72px;height:72px;}
+.about h2{margin-bottom:18px;}
+.about-text{color:var(--muted);text-align:justify;text-justify:inter-word;hyphens:none;}
+.about .btns{margin-top:28px;}
+@media(max-width:860px){.about{grid-template-columns:1fr;gap:40px;}.about-photo{max-width:360px;}}
+@media(max-width:600px){.about-text{text-align:left;}.about-photo{max-width:240px;}}
+
+/* credentials */
+.creds{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;}
+.creds li+li{border-top:1px solid var(--line);}
+.cred{display:grid;grid-template-columns:44px 1fr auto;gap:6px 22px;align-items:center;padding:24px 28px;width:100%;text-align:left;background:none;border:0;}
+.cred .cic{width:44px;height:44px;border-radius:12px;background:var(--paper);display:grid;place-items:center;color:var(--teal-ink);grid-row:1/span 2;}
+.cred h3{font-size:1.08rem;}
+.cred p{color:var(--muted);font-size:.93rem;grid-column:2;}
+.cred .when{grid-column:3;grid-row:1;font-size:.88rem;color:var(--muted);font-weight:560;text-align:right;white-space:nowrap;}
+.cred .viewcert{grid-column:3;grid-row:2;justify-self:end;font-size:.88rem;font-weight:650;color:var(--teal-ink);display:inline-flex;align-items:center;gap:6px;}
+.cred .viewcert .ic{width:16px;height:16px;}
+button.cred{cursor:pointer;transition:background .2s;}
+button.cred:hover{background:var(--paper);}
+button.cred:hover .viewcert{text-decoration:underline;text-underline-offset:3px;}
+@media(max-width:700px){.cred{grid-template-columns:44px 1fr;padding:20px;}.cred .when,.cred .viewcert{grid-column:2;grid-row:auto;justify-self:start;text-align:left;}}
+.demo{margin-top:40px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:#000;}
+.demo video{display:block;width:100%;max-height:560px;}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+.tcard{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;}
+.tcard q{display:block;font-size:1.02rem;margin-bottom:14px;}
+.tcard b{display:block;font-size:.95rem;}
+.tcard small{color:var(--muted);}
+
+/* packages */
+.pkgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:stretch;}
+.pkg{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px 26px;display:flex;flex-direction:column;gap:14px;position:relative;}
+.pkg h3{font-size:1.22rem;}
+@media(min-width:1101px){.pkg h3{min-height:2.56em;}}
+.pkg .price{font-stretch:118%;font-weight:760;font-size:1.6rem;line-height:1.1;}
+.pkg .price small{display:block;font-stretch:100%;font-weight:500;font-size:.82rem;color:var(--muted);margin-top:4px;}
+.pkg > p{color:var(--muted);font-size:.95rem;}
+.pkg ul{display:grid;gap:9px;font-size:.94rem;}
+.pkg li{display:flex;gap:10px;align-items:flex-start;}
+.pkg li .ic{width:18px;height:18px;color:var(--teal-ink);stroke-width:2.4;margin-top:3px;}
+.pkg .btn{margin-top:auto;}
+.pkg.hot{background:var(--ink);border-color:var(--ink);color:#fff;box-shadow:var(--shadow-lg);}
+.pkg.hot > p,.pkg.hot .price small{color:var(--muted-d);}
+.pkg.hot li .ic{color:var(--teal);}
+.flag{position:absolute;top:-12px;left:26px;background:var(--teal);color:var(--ink);font-size:.76rem;font-weight:700;padding:4px 12px;border-radius:999px;}
+@media(max-width:1100px){.pkgrid{grid-template-columns:1fr 1fr;}}
+@media(max-width:620px){
+  .pkgrid{grid-template-columns:1fr;gap:20px;}
+  .pkg{padding:22px 20px 20px;gap:10px;}
+  .pkg h3{font-size:1.1rem;}
+  .pkg .price{font-size:1.2rem;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;}
+  .pkg .price small{display:inline;margin-top:0;}
+  .pkg > p{font-size:.9rem;line-height:1.5;}
+  .pkg ul{gap:6px;font-size:.9rem;line-height:1.45;}
+  .pkg li .ic{width:16px;height:16px;margin-top:2px;}
+  .pkg .btn{padding:11px 18px;font-size:.93rem;}
+  .flag{left:20px;top:-11px;font-size:.72rem;padding:3px 10px;}
+}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px 72px;align-items:start;}
+.faq-head h2{margin-bottom:16px;}
+.faq details{border-top:1px solid var(--line);}
+.faq details:last-child{border-bottom:1px solid var(--line);}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-weight:640;font-size:1.06rem;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary .ic{width:20px;height:20px;color:var(--teal-ink);transition:transform .25s;}
+.faq details[open] summary .ic{transform:rotate(180deg);}
+.faq details p{color:var(--muted);padding:0 0 22px;font-size:.98rem;}
+@media(max-width:860px){.faq-grid{grid-template-columns:1fr;}}
+
+/* cta */
+.cta{padding:96px 0;}
+.cta-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:28px 64px;align-items:end;}
+.cta h2{font-size:clamp(2rem,4.4vw,3.3rem);max-width:15ch;}
+.cta .btns{margin-top:26px;}
+@media(max-width:860px){.cta-grid{grid-template-columns:1fr;}}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:start;}
+.contact-info h2{margin-bottom:16px;}
+.clist{margin-top:30px;border-top:1px solid var(--line);}
+.clist li{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);}
+.clist a{display:flex;align-items:center;gap:16px;padding:18px 0;flex:1;min-width:0;}
+.clist a:hover b{color:var(--teal-ink);}
+.cic2{width:44px;height:44px;border-radius:12px;background:var(--paper);display:grid;place-items:center;color:var(--teal-ink);flex:none;}
+.clist b{display:block;font-weight:650;}
+.clist small{display:block;color:var(--muted);font-size:.9rem;overflow-wrap:anywhere;}
+.copybtn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-size:.86rem;font-weight:600;color:var(--muted);cursor:pointer;flex:none;}
+.copybtn .ic{width:16px;height:16px;}
+.copybtn:hover{color:var(--ink);border-color:var(--ink);}
+.copybtn.done{color:var(--teal-ink);border-color:var(--teal-ink);}
+.contact-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:34px;}
+.form-note{color:var(--muted);font-size:.95rem;margin-bottom:20px;}
+.flabel{display:block;font-weight:620;font-size:.9rem;margin:0 0 7px 2px;}
+.field{width:100%;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--ink);font-family:inherit;font-size:1rem;margin-bottom:16px;transition:border-color .2s,box-shadow .2s;}
+.field:focus{outline:none;border-color:var(--teal-ink);box-shadow:0 0 0 4px rgba(43,191,176,.18);}
+textarea.field{resize:vertical;min-height:130px;}
+.field.bad{border-color:#C2410C;background:#FFF8F5;}
+.ferr{color:#B42318;font-size:.84rem;margin:-10px 0 12px 2px;}
+.ferr:empty{display:none;}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+#sendBtn{width:100%;margin-top:4px;}
+#sendBtn:disabled{opacity:.7;cursor:wait;}
+#formMsg{font-size:.92rem;margin-top:12px;}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}.contact-card{padding:26px 22px;}}
+
+/* footer */
+.site-foot{padding:64px 0 0;}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:32px;padding-bottom:44px;}
+.foot-brand p{margin-top:14px;max-width:26rem;font-size:.94rem;}
+.foot-h{font-size:.95rem;font-stretch:112%;color:#fff;margin-bottom:12px;}
+.foot-col a{display:block;color:var(--muted-d);font-size:.95rem;padding:5px 0;}
+.foot-col a:hover{color:#fff;}
+.foot-bottom{border-top:1px solid var(--bline);padding:20px 24px 96px;color:var(--muted-d);font-size:.86rem;max-width:1180px;margin:0 auto;}
+@media(max-width:700px){.foot-grid{grid-template-columns:1fr 1fr;}.foot-brand{grid-column:1/-1;}}
+
+/* floating buttons */
+.chatfab{position:fixed;right:18px;bottom:18px;z-index:56;display:flex;align-items:center;gap:9px;padding:12px 18px 12px 15px;border-radius:999px;background:var(--teal);color:var(--ink);font-weight:660;font-size:.93rem;box-shadow:0 10px 26px rgba(11,122,112,.35);transition:transform .2s,box-shadow .2s;}
+.chatfab:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(11,122,112,.42);}
+.chatfab .ic{width:20px;height:20px;}
+.totop{position:fixed;right:18px;bottom:84px;z-index:55;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);cursor:pointer;background:#fff;color:var(--ink);display:grid;place-items:center;box-shadow:var(--shadow);opacity:0;transform:translateY(10px);pointer-events:none;transition:.3s;}
+.totop .ic{width:20px;height:20px;}
+.totop.show{opacity:1;transform:none;pointer-events:auto;}
+@media(max-width:600px){.chatfab span{display:none;}.chatfab{padding:14px;}.totop{bottom:80px;width:42px;height:42px;}}
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:90;background:rgba(9,18,32,.95);display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px 16px 16px;}
+#lb.open{display:flex;animation:lbin .25s;}
+@keyframes lbin{from{opacity:0;}}
+.lb-top{width:min(1120px,100%);display:flex;justify-content:space-between;align-items:center;color:#fff;margin-bottom:14px;gap:12px;}
+.lb-title{font-stretch:112%;font-weight:700;font-size:1.08rem;}
+.lb-sub{color:var(--muted-d);font-size:.86rem;margin-top:2px;}
+.lb-x,.lb-nav{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;border-radius:50%;cursor:pointer;display:grid;place-items:center;}
+.lb-x{width:42px;height:42px;flex:none;}
+.lb-x:hover,.lb-nav:hover{background:rgba(255,255,255,.2);}
+.lb-stage{position:relative;width:min(1120px,100%);flex:1;min-height:0;display:flex;align-items:center;justify-content:center;}
+.lb-stage img{max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.5);background:#fff;object-fit:contain;animation:lbimg .35s;}
+@keyframes lbimg{from{opacity:0;transform:scale(.98);}}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;}
+.lb-nav.prev{left:8px;} .lb-nav.next{right:8px;}
+.lb-cap{color:#E6EDF6;font-size:.95rem;margin-top:14px;text-align:center;min-height:1.4em;}
+.lb-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:10px;}
+.lb-dots button{width:9px;height:9px;border-radius:50%;border:0;background:rgba(255,255,255,.3);cursor:pointer;padding:0;}
+.lb-dots button.on{background:var(--teal);width:24px;border-radius:6px;}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+  #welcome{display:none;}
+  .pulse{display:none;}
+  .nd{border-color:var(--teal);}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Angelou Fiel","jobTitle":"Web & IoT Software Developer","email":"mailto:angeloufiel24@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Pagadian City","addressRegion":"Zamboanga del Sur","addressCountry":"PH"},"alumniOf":"Yllana Bay View College, Inc.","sameAs":["https://www.facebook.com/angelou.fiel.75"],"knowsAbout":["PHP","MySQL","JavaScript","ESP32","IoT","Flutter","Firebase"]}
+</script>
+</head>
+<body class="loading">
+<div id="welcome" role="status" aria-label="Welcome">
+  <div class="wbox">
+    <div class="wmark">
+      <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="46"/><circle class="arc" cx="50" cy="50" r="46"/></svg>
+      <svg class="ic wicon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2.6"/><path d="M9 2.5v2.5M15 2.5v2.5M9 19v2.5M15 19v2.5M2.5 9H5M2.5 15H5M19 9h2.5M19 15h2.5"/><path d="M10.2 9.8 8.3 12l1.9 2.2M13.8 9.8l1.9 2.2-1.9 2.2"/></svg>
+    </div>
+    <div class="wgreet" id="wgreet" aria-live="polite"></div>
+    <p class="wname">I'm <b>Angelou Fiel</b><br>Web &amp; IoT Software Developer</p>
+    <p class="wcap">“I solve problems before they cost you money.”</p>
+    <div class="wbar"><i></i></div>
+  </div>
+  <button class="wskip" id="wskip" type="button">Skip</button>
+</div>
+<noscript><style>#welcome{display:none!important}body.loading{overflow:auto}</style></noscript>
+
+<div id="progress"></div>
+<a class="skip" href="#main">Skip to content</a>
+<nav id="nav" aria-label="Main">
+  <div class="navrow">
+    <a class="logo" href="#main"><span class="logo-mark" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2.6"/><path d="M9 2.5v2.5M15 2.5v2.5M9 19v2.5M15 19v2.5M2.5 9H5M2.5 15H5M19 9h2.5M19 15h2.5"/><path d="M10.2 9.8 8.3 12l1.9 2.2M13.8 9.8l1.9 2.2-1.9 2.2"/></svg></span>Angelou Fiel</a>
+    <div class="navlinks">
+      <a href="#work">Work</a><a href="#services">Services</a><a href="#packages">Packages</a><a href="#about">About</a><a href="#contact">Contact</a><a href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      <a href="#contact" class="btn btn-solid">Let's talk</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mnav" id="mnav">
+    <a href="#work">Work</a><a href="#services">Services</a><a href="#packages">Packages</a><a href="#about">About</a><a href="#credentials">Certificates</a><a href="#contact">Contact</a><a href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+  </div>
+</nav>
+
+<header class="hero" id="main">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="status"><span class="led"></span>Available for new projects</p>
+      <h1>I turn your idea into a working <span class="hl" id="rotate">system</span>.</h1>
+      <p class="lead">Business systems, web and mobile apps, and ESP32 hardware, built and tested by one developer in Pagadian City.</p>
+      <div class="btns">
+        <a href="#contact" class="btn btn-solid">Start your project</a>
+        <a href="#work" class="btn btn-line">See my work</a>
+      </div>
+      <ul class="proof">
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/> <path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/> <path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/> <path d="M4 22h16"/> <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/> <path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg>Overall Champion, 2025 Graphic Designing Competition</li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20v2"/> <path d="M12 2v2"/> <path d="M17 20v2"/> <path d="M17 2v2"/> <path d="M2 12h2"/> <path d="M2 17h2"/> <path d="M2 7h2"/> <path d="M20 12h2"/> <path d="M20 17h2"/> <path d="M20 7h2"/> <path d="M7 20v2"/> <path d="M7 2v2"/> <rect x="4" y="4" width="16" height="16" rx="2"/> <rect x="8" y="8" width="8" height="8" rx="1"/></svg>9 systems built and tested</li>
+      </ul>
+    </div>
+    <figure class="hero-photo">
+      <img src="me.jpg" alt="Angelou Fiel" width="840" height="1080" fetchpriority="high">
+    </figure>
+  </div>
+</header>
+
+<section class="signal on-dark perf" aria-labelledby="sig-h">
+  <div class="wrap">
+    <div class="sig-head">
+      <h2 id="sig-h">One developer, the whole system.</h2>
+      <p class="lead">I build both the hardware and the software, so your device, database, dashboard and app come from one person and work together from day one.</p>
+    </div>
+    <div class="sig">
+      <span class="trace" aria-hidden="true"></span><span class="pulse" aria-hidden="true"></span>
+      <ol class="sig-path">
+        <li class="node"><span class="nd"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></span><div><b>Sensor</b><small>Reads power, heat or feed level</small></div></li>
+        <li class="node"><span class="nd"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20v2"/> <path d="M12 2v2"/> <path d="M17 20v2"/> <path d="M17 2v2"/> <path d="M2 12h2"/> <path d="M2 17h2"/> <path d="M2 7h2"/> <path d="M20 12h2"/> <path d="M20 17h2"/> <path d="M20 7h2"/> <path d="M7 20v2"/> <path d="M7 2v2"/> <rect x="4" y="4" width="16" height="16" rx="2"/> <rect x="8" y="8" width="8" height="8" rx="1"/></svg></span><div><b>ESP32</b><small>Sends the readings online</small></div></li>
+        <li class="node"><span class="nd"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/> <path d="M3 5V19A9 3 0 0 0 21 19V5"/> <path d="M3 12A9 3 0 0 0 21 12"/></svg></span><div><b>Database</b><small>Keeps every record safe</small></div></li>
+        <li class="node"><span class="nd"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"/> <rect width="7" height="5" x="14" y="3" rx="1"/> <rect width="7" height="9" x="14" y="12" rx="1"/> <rect width="7" height="5" x="3" y="16" rx="1"/></svg></span><div><b>Dashboard</b><small>Shows it live, with reports</small></div></li>
+        <li class="node"><span class="nd"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/> <path d="M12 18h.01"/></svg></span><div><b>Your phone</b><small>Check it from anywhere</small></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white" aria-labelledby="pain-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="pain-h">Running on paper, or stuck with software that doesn't fit?</h2>
+      <p class="lead">If any of these sound like your day, a system built for your business can take it off your hands.</p>
+    </div>
+    <ul class="pains">
+      <li class="pain"><div class="pain-top"><span class="pic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 22h14"/> <path d="M5 2h14"/> <path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/> <path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg></span><div><h3>Manual work eats your day</h3><p>Counting, recording and computing by hand. Hours you'll never get back.</p></div></div><p class="pain-fix"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>The system counts, records and computes for you.</span></p></li>
+      <li class="pain"><div class="pain-top"><span class="pic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/></svg></span><div><h3>Ready made apps don't fit</h3><p>You bend your business to the software instead of the other way around.</p></div></div><p class="pain-fix"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Built around your process, not a template.</span></p></li>
+      <li class="pain"><div class="pain-top"><span class="pic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 17h6v-6"/> <path d="m22 17-8.5-8.5-5 5L2 7"/></svg></span><div><h3>No clear records or reports</h3><p>Sales, stock and records are scattered, so it's hard to see what's really happening.</p></div></div><p class="pain-fix"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Live records and reports, ready whenever you need them.</span></p></li>
+      <li class="pain"><div class="pain-top"><span class="pic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/> <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></span><div><h3>Developers are slow and pricey</h3><p>Months of waiting and a bill to match. It doesn't have to be that way.</p></div></div><p class="pain-fix"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Weeks instead of months, with a free quote first.</span></p></li>
+    </ul>
+    <div class="fixbar">
+      <p><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/> <path d="m9 12 2 2 4-4"/></svg><span>Every system is tested before handover and comes with training and support.</span></p>
+      <a href="#packages" class="btn btn-teal">See packages</a>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="bg-paper">
+  <div class="wrap">
+    <div class="head">
+      <h2>Real systems, made to fit.</h2>
+      <p class="lead">What you can hire me to build, from a single dashboard to a full system with hardware.</p>
+    </div>
+    <ul class="svc">
+      <li><span class="sic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17V7"/> <path d="M16 8h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8"/> <path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z"/></svg></span><div><h3>Business and POS systems</h3><p>Inventory, sales, records, users and roles: the daily engine of your business.</p></div></li>
+      <li><span class="sic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/> <path d="M10 4v4"/> <path d="M2 8h20"/> <path d="M6 4v4"/></svg></span><div><h3>Web applications</h3><p>Custom dashboards and portals that run on any browser, phone or computer.</p></div></li>
+      <li><span class="sic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/> <path d="M12 18h.01"/></svg></span><div><h3>Mobile apps</h3><p>Android apps built with Flutter, connected to your system and data.</p></div></li>
+      <li><span class="sic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20v2"/> <path d="M12 2v2"/> <path d="M17 20v2"/> <path d="M17 2v2"/> <path d="M2 12h2"/> <path d="M2 17h2"/> <path d="M2 7h2"/> <path d="M20 12h2"/> <path d="M20 17h2"/> <path d="M20 7h2"/> <path d="M7 20v2"/> <path d="M7 2v2"/> <rect x="4" y="4" width="16" height="16" rx="2"/> <rect x="8" y="8" width="8" height="8" rx="1"/></svg></span><div><h3>IoT and hardware systems</h3><p>Sensors and ESP32 devices feeding live dashboards with alerts.</p></div></li>
+      <li><span class="sic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/> <line x1="2" x2="22" y1="10" y2="10"/> <path d="M6 14h2"/></svg></span><div><h3>Online payments</h3><p>Accept GCash, cards and bank transfers with secure, verified checkout.</p></div></li>
+      <li><span class="sic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/> <path d="M22 10v6"/> <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></span><div><h3>Capstone system development <span class="for">For IT Related Courses</span></h3><p>I help students in IT related courses develop their capstone systems: web, mobile or IoT. I walk you through how it all works so you can explain it with confidence at your defense.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="work" class="on-dark perf">
+  <div class="wrap">
+    <div class="head work-head">
+      <h2>Systems I've built.</h2>
+      <div>
+        <p class="lead">Real projects, built and tested. Open any project to see its screens.</p>
+        <div class="filters" id="filters" role="tablist" aria-label="Filter projects">
+          <button class="fchip on" data-f="all" role="tab" aria-selected="true">All</button>
+          <button class="fchip" data-f="web" role="tab" aria-selected="false">Web systems</button>
+          <button class="fchip" data-f="iot" role="tab" aria-selected="false">IoT and hardware</button>
+          <button class="fchip" data-f="mobile" role="tab" aria-selected="false">Mobile</button>
+        </div>
+      </div>
+    </div>
+    <div class="pgrid" id="projects"></div>
+  </div>
+</section>
+
+<section id="skills" class="bg-white">
+  <div class="wrap">
+    <div class="head">
+      <h2>Tools and skills behind every build.</h2>
+      <p class="lead">Security, reports and support come standard, not as extras.</p>
+    </div>
+    <div class="spec">
+      <div class="spec-row"><h3>Web development</h3><p>Business systems and dashboards with user roles, reports and phone friendly layouts.</p><ul class="chips"><li>PHP</li><li>MySQL</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Bootstrap 5</li><li>Python FastAPI</li></ul></div>
+      <div class="spec-row"><h3>IoT and hardware</h3><p>I wire, program and test the device, then connect it to a live web dashboard.</p><ul class="chips"><li>ESP32</li><li>ACS712</li><li>ZMPT101B</li><li>DHT22</li><li>DS18B20</li><li>Ultrasonic sensors</li><li>DS3231 RTC</li><li>Relays and servos</li></ul></div>
+      <div class="spec-row"><h3>Mobile and GPS</h3><p>Mobile apps with live location and geofencing, like the SafeTrack child safety tracker.</p><ul class="chips"><li>Flutter</li><li>Firebase</li><li>GPS module</li></ul></div>
+      <div class="spec-row"><h3>Security built in</h3><p>Every login and form is protected by default, not added at the end.</p><ul class="chips"><li>Password hashing</li><li>CSRF protection</li><li>Login lockout</li><li>Role based access</li></ul></div>
+      <div class="spec-row"><h3>Business features</h3><p>The features owners actually use every day: reports, payments and alerts.</p><ul class="chips"><li>Excel, CSV and PDF reports</li><li>GCash and card (PayMongo)</li><li>Dashboard alerts</li></ul></div>
+      <div class="spec-row"><h3>Deployment and support</h3><p>I put your system online, train your staff, and keep it running after handover.</p><ul class="chips"><li>Hostinger</li><li>cPanel</li><li>XAMPP</li><li>Git and GitHub</li><li>Staff training</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-paper" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="how-h">From idea to running system.</h2>
+      <p class="lead">The same four steps for every project, so you always know what happens next.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="num">1</span><h3>Discover</h3><p>We talk through your process and exactly what you need.</p></li>
+      <li><span class="num">2</span><h3>Build</h3><p>I build it step by step and test it as I go.</p></li>
+      <li><span class="num">3</span><h3>Deliver</h3><p>Set up, deployed, and taught to you and your team.</p></li>
+      <li><span class="num">4</span><h3>Support</h3><p>I keep it running and improve it over time.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="about" class="bg-white">
+  <div class="wrap about">
+    <figure class="about-photo"><img src="me.jpg" alt="Angelou Fiel" width="840" height="1080" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"><div class="fb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2.6"/><path d="M9 2.5v2.5M15 2.5v2.5M9 19v2.5M15 19v2.5M2.5 9H5M2.5 15H5M19 9h2.5M19 15h2.5"/><path d="M10.2 9.8 8.3 12l1.9 2.2M13.8 9.8l1.9 2.2-1.9 2.2"/></svg></div></figure>
+    <div>
+      <h2>Hi, I'm Angelou.</h2>
+      <p class="about-text">I'm a BSIT student and full stack developer from Pagadian City, Philippines. I build complete systems, from the database and web dashboard down to the ESP32 hardware and wiring. My work includes the Pagadian City Library system with an admin side and a borrower portal for book reservations, a farmer marketplace with four user roles and GCash payments, and IoT systems that monitor energy use, streetlights, heat stress, egg incubation and automated feeding. Every system I deliver is secured (encrypted passwords, login lockout and protected forms), tested, deployed online, and handed over with training. I speak English, Taglish, and Bisaya, and I work with both local and online clients. If you can describe your business, I can build the system for it.</p>
+      <div class="btns"><a href="#contact" class="btn btn-solid">Work with me</a><a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-line"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/> <path d="M14 2v5a1 1 0 0 0 1 1h5"/> <path d="M10 9H8"/> <path d="M16 13H8"/> <path d="M16 17H8"/></svg>Download résumé</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="credentials" class="bg-paper">
+  <div class="wrap">
+    <div class="head">
+      <h2>Education and certificates.</h2>
+      <p class="lead">Open any certificate to see the original.</p>
+    </div>
+    <ul class="creds">
+      <li><div class="cred"><span class="cic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/> <path d="M22 10v6"/> <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></span><h3>Bachelor of Science in Information Technology</h3><span class="when">2022 to 2025</span><p>Yllana Bay View College, Inc.</p></div></li>
+      <li><button type="button" class="cred certbtn" data-cert="assets/certificates/graphic-design-champion.jpg" data-title="Graphic Designing Championship Award"><span class="cic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/> <path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/> <path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/> <path d="M4 22h16"/> <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/> <path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/></svg></span><h3>Overall Champion, Graphic Designing Competition</h3><span class="when">October 9, 2025</span><p>Cyberian Day 2025, YBVC College of Computer Education</p><span class="viewcert">View certificate<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span></button></li>
+      <li><button type="button" class="cred certbtn" data-cert="assets/certificates/social-media-marketing.jpg" data-title="Virtual Assistant Social Media Marketing Course"><span class="cic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 12h-5"/> <path d="M15 8h-5"/> <path d="M19 17V5a2 2 0 0 0-2-2H4"/> <path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg></span><h3>Virtual Assistant Social Media Marketing Course</h3><span class="when">August 30, 2025</span><p>Freelance Academy, 15 hours</p><span class="viewcert">View certificate<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span></button></li>
+      <li><button type="button" class="cred certbtn" data-cert="assets/certificates/freelance-design-workshop.jpg" data-title="Intensive Online Freelance Design Workshop"><span class="cic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/> <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/> <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/> <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/> <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg></span><h3>Intensive Online Freelance Design Workshop</h3><span class="when">Certificate of completion</span><p>Master Logo PH</p><span class="viewcert">View certificate<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span></button></li>
+    </ul>
+    <div id="demoVideo" class="demo" hidden></div>
+    <div id="testimonials" hidden>
+      <div class="head" style="margin-top:72px;"><h2>What clients say.</h2></div>
+      <div class="tgrid" id="tgrid"></div>
+    </div>
+  </div>
+</section>
+
+<section id="packages" class="bg-white">
+  <div class="wrap">
+    <div class="head">
+      <h2>Pick a starting point.</h2>
+      <p class="lead">Every package is shaped around your process. Tell me what you need and you'll get a clear quote and timeline, free.</p>
+    </div>
+    <div class="pkgrid" id="pkgrid"></div>
+  </div>
+</section>
+
+<section id="faq" class="bg-paper">
+  <div class="wrap faq-grid">
+    <div class="faq-head">
+      <h2>Good to know.</h2>
+      <p class="lead">Quick answers to the questions people ask most. Still unsure? <a class="tlink" href="https://m.me/angelou.fiel.75" target="_blank" rel="noopener">Ask me on Messenger</a>.</p>
+    </div>
+    <div class="faq">
+      <details open><summary>How much does a system cost?<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><p>It depends on how big and complex your system is. It can start small. You get a free quote first, with no obligation.</p></details>
+      <details><summary>I'm not techy. Can I use it?<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><p>Yes. Systems are built to be simple and phone friendly, and training is included so you and your staff learn it fast.</p></details>
+      <details><summary>How long does it take?<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><p>A simple system is about 1 to 2 weeks; larger ones take 4 to 6 weeks. You'll get a clear timeline with your quote.</p></details>
+      <details><summary>What if something breaks later?<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><p>Ongoing support is part of the service. If something needs fixing, I handle it.</p></details>
+      <details><summary>Do you help with capstone projects?<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><p>Yes. I help students develop their capstone systems, whether web, mobile or IoT with ESP32. I build it with you based on your approved scope and walk you through how everything works, so you understand your system and are ready to answer questions at your defense.</p></details>
+      <details><summary>Do you build mobile apps and IoT too?<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><p>Yes. I build web systems, Android apps (Flutter), and IoT and hardware systems (ESP32). See my featured work above.</p></details>
+      <details><summary>Can I pay in installments?<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><p>Typically a 50% downpayment to start and the balance on delivery. We can talk through what works for you.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta on-dark perf" aria-labelledby="cta-h">
+  <div class="wrap cta-grid">
+    <h2 id="cta-h">Have a system in mind? Let's build it.</h2>
+    <div>
+      <p class="lead">Tell me about your business and I'll reply with a plan and a fair price. Free quote, no obligation.</p>
+      <div class="btns"><a href="#contact" class="btn btn-solid">Get my free quote</a><a href="https://m.me/angelou.fiel.75" target="_blank" rel="noopener" class="btn btn-line"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>Chat on Messenger</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="bg-white">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <h2>Let's build something.</h2>
+      <p class="lead">Tell me what you'd like me to build and I'll reply with a plan. Use the form, or reach me directly.</p>
+      <ul class="clist">
+        <li><a href="https://m.me/angelou.fiel.75" target="_blank" rel="noopener"><span class="cic2"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg></span><span><b>Messenger</b><small>Chat with me directly</small></span></a></li>
+        <li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=angeloufiel24@gmail.com&amp;su=Project%20inquiry%20from%20your%20portfolio" target="_blank" rel="noopener" title="Opens Gmail in a new tab"><span class="cic2"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/> <rect x="2" y="4" width="20" height="16" rx="2"/></svg></span><span><b>Email me on Gmail</b><small>angeloufiel24@gmail.com</small></span></a><button type="button" class="copybtn" id="copyEmail" data-email="angeloufiel24@gmail.com" aria-label="Copy my email address"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span>Copy</span></button></li>
+        <li><a href="https://www.facebook.com/angelou.fiel.75" target="_blank" rel="noopener"><span class="cic2"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/> <circle cx="12" cy="7" r="4"/></svg></span><span><b>Facebook</b><small>facebook.com/angelou.fiel.75</small></span></a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener"><span class="cic2"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/> <path d="M14 2v5a1 1 0 0 0 1 1h5"/> <path d="M10 9H8"/> <path d="M16 13H8"/> <path d="M16 17H8"/></svg></span><span><b>Résumé</b><small>One page PDF</small></span></a></li>
+      </ul>
+    </div>
+    <div class="contact-card">
+      <p class="form-note">Fill in your details and your message comes straight to my inbox. I'll reply to the email address you give.</p>
+      <label class="flabel" for="c-name">Your name</label>
+      <input id="c-name" class="field" placeholder="e.g. Juan Dela Cruz" autocomplete="name" maxlength="80" aria-describedby="e-name">
+      <div class="ferr" id="e-name"></div>
+      <label class="flabel" for="c-email">Your email</label>
+      <input id="c-email" class="field" type="email" inputmode="email" placeholder="e.g. juan@gmail.com" autocomplete="email" autocapitalize="off" spellcheck="false" maxlength="120" aria-describedby="e-email">
+      <div class="ferr" id="e-email"></div>
+      <label class="flabel" for="c-msg">Your message</label>
+      <textarea id="c-msg" class="field" rows="4" placeholder="Tell me about your business and what you'd like me to build" maxlength="2000" aria-describedby="e-msg"></textarea>
+      <div class="ferr" id="e-msg"></div>
+      <div class="hp" aria-hidden="true"><label for="c-web">Leave this empty</label><input id="c-web" type="text" tabindex="-1" autocomplete="off"></div>
+      <button class="btn btn-solid" id="sendBtn" type="button" onclick="sendContact()">Send message</button>
+      <div id="formMsg" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<a class="chatfab" id="chatfab" href="https://m.me/angelou.fiel.75" target="_blank" rel="noopener" aria-label="Chat with me on Messenger"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg><span>Chat on Messenger</span></a>
+<button class="totop" id="totop" type="button" aria-label="Back to top"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 7-7 7 7"/> <path d="M12 19V5"/></svg></button>
+
+<footer class="site-foot on-dark">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="logo" href="#main"><span class="logo-mark" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2.6"/><path d="M9 2.5v2.5M15 2.5v2.5M9 19v2.5M15 19v2.5M2.5 9H5M2.5 15H5M19 9h2.5M19 15h2.5"/><path d="M10.2 9.8 8.3 12l1.9 2.2M13.8 9.8l1.9 2.2-1.9 2.2"/></svg></span>Angelou Fiel</a>
+      <p>Web and IoT software developer in Pagadian City, Philippines. Business systems, IoT dashboards and capstone systems, built and tested.</p>
+    </div>
+    <div class="foot-col" role="navigation" aria-label="Footer links"><h3 class="foot-h">Explore</h3><a href="#work">Work</a><a href="#services">Services</a><a href="#packages">Packages</a><a href="#about">About</a><a href="#credentials">Certificates</a></div>
+    <div class="foot-col"><h3 class="foot-h">Contact</h3><a href="https://m.me/angelou.fiel.75" target="_blank" rel="noopener">Messenger</a><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=angeloufiel24@gmail.com&amp;su=Project%20inquiry%20from%20your%20portfolio" target="_blank" rel="noopener">Gmail</a><a href="https://www.facebook.com/angelou.fiel.75" target="_blank" rel="noopener">Facebook</a><a href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></div>
+  </div>
+  <p class="foot-bottom">© <span id="yr"></span> Angelou Fiel, Pagadian City, Philippines</p>
+</footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Project screenshots">
+  <div class="lb-top"><div><p class="lb-title" id="lbTitle"></p><p class="lb-sub" id="lbSub"></p></div><button class="lb-x" id="lbX" aria-label="Close gallery" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/> <path d="m6 6 12 12"/></svg></button></div>
+  <div class="lb-stage">
+    <button class="lb-nav prev" id="lbPrev" aria-label="Previous screen" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+    <img id="lbImg" alt="">
+    <button class="lb-nav next" id="lbNext" aria-label="Next screen" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+  </div>
+  <p class="lb-cap" id="lbCap"></p>
+  <div class="lb-dots" id="lbDots"></div>
+</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/angeloufiel24@gmail.com"; // messages are emailed to you; blank uses the FastAPI backend
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const ICON_CHEV = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>', ICON_CHECK = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30), {passive:true});
+const prog = document.getElementById('progress');
+addEventListener('scroll', () => { const h=document.documentElement; prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'; }, {passive:true});
+
+/* ===== Contact form ===== */
+function fieldErr(id,msg){ const f=document.getElementById(id), e=document.getElementById('e-'+id.slice(2)); f.setAttribute('aria-invalid',msg?'true':'false'); f.classList.toggle('bad',!!msg); e.textContent=msg||''; return !msg; }
+let sending=false;
+async function sendContact(){
+  if(sending) return;
+  const name=document.getElementById('c-name').value.trim();
+  const email=document.getElementById('c-email').value.trim();
+  const message=document.getElementById('c-msg').value.trim();
+  const out=document.getElementById('formMsg'), btn=document.getElementById('sendBtn');
+  const okEmail=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+  let ok=fieldErr('c-name', name.length<2?'Please enter your name.':'');
+  ok=fieldErr('c-email', !email?'Please enter your email address.':(!okEmail?'Please enter a valid email address, like juan@gmail.com.':''))&&ok;
+  ok=fieldErr('c-msg', message.length<10?'Please tell me a little more (at least 10 characters).':'')&&ok;
+  if(!ok){ out.style.color='#B42318'; out.textContent='Please check the highlighted fields.'; return; }
+  const done=()=>{ out.style.color='#0B7A70'; out.textContent="Thanks! I'll get back to you soon."; ['c-name','c-email','c-msg'].forEach(id=>document.getElementById(id).value=''); };
+  if(document.getElementById('c-web').value){ done(); return; } // spam bot filled the hidden field
+  sending=true; btn.disabled=true; btn.textContent='Sending…'; out.style.color='var(--muted)'; out.textContent='';
+  try{
+    let res;
+    if(FORM_ENDPOINT){ res=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name,email,message,_subject:'New message from your portfolio',_template:'table',_captcha:'false'})}); }
+    else{ res=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({name,email,message})}); }
+    if(!res.ok) throw new Error();
+    done();
+  }catch(e){ out.style.color='#B42318'; out.textContent='Your message was not sent. Check your connection and try again, or chat with me on Messenger.'; }
+  finally{ sending=false; btn.disabled=false; btn.textContent='Send message'; }
+}
+
+/* ===== Project data (add screenshots by dropping files into assets/projects/<folder>/ and listing them here) ===== */
+const PROJECTS=[
+ {id:'farmdirect',problem:'Local farmers depend on middlemen and have no simple way to sell directly to buyers.',result:'Buyers order straight from farmers, pay by GCash or cash, and follow every order until it is delivered.',type:['web'],icon:'🌾',label:'Web system, 4 user roles',title:'FarmDirect Dumalinao',desc:'A marketplace connecting local farmers to buyers, with four roles (Customer, Farmer, Rider and Admin), plus product catalog, orders, deliveries and online payments (GCash / card).',tags:['PHP','Bootstrap','PayMongo'],dir:'assets/projects/farmdirect/',shots:[
+  ['1.jpg','Customer: Storefront home page'],
+  ['2.jpg','Customer: Browse products by category and price'],
+  ['3.jpg','Customer: Product details and add to cart'],
+  ['4.jpg','Customer: My dashboard with active orders and updates'],
+  ['5.jpg','Customer: My orders with live order status'],
+  ['6.jpg','Farmer: Dashboard with earnings and stock alerts'],
+  ['7.jpg','Farmer: My products'],
+  ['8.jpg','Farmer: Inventory log and stock summary'],
+  ['9.jpg','Rider: My deliveries (accept, call, directions)'],
+  ['10.jpg','Rider: Delivery history'],
+  ['11.jpg','Admin: Dashboard and items that need action'],
+  ['12.jpg','Admin: Order management and rider assignment'],
+  ['13.jpg','Admin: All products with cost, price and profit'],
+  ['14.jpg','Admin: User management (farmers, riders, customers)'],
+  ['15.jpg','Admin: Sales reports']]},
+ {id:'sarisaripos',problem:'Small stores track sales and stock by hand, run out of best sellers without noticing, lose count of tingi pieces and cash, and cannot see what they really earn each day.',result:'Cashiers check out customers as fast as a grocery register, deliveries and expiry dates are recorded, the shopping list tells the owner what to buy and how much money to bring, and every day closes with a sales and profit report.',type:['web'],icon:'🛒',label:'Web system, 2 user roles',title:'Sari-Sari Store POS',desc:'A point of sale built like the registers in malls and big groceries, made for a sari-sari store: barcode scanning, tingi selling, GCash and Maya QR, cashier shifts and day closing, plus full inventory with deliveries, suppliers, expiry dates, stock counts and a shopping list.',tags:['PHP','MySQL','JavaScript'],dir:'assets/projects/sarisaripos/',shots:[
+  ['1.jpg','Cashier: Grocery style register with LED total and quick items'],
+  ['2.jpg','Cashier: Cash payment with a large total and change'],
+  ['3.jpg','Cashier: GCash and Maya QR with the amount already inside'],
+  ['4.jpg','Cashier: End of shift cash count'],
+  ['5.jpg','Owner: Inventory with out of stock, running low and expiring items'],
+  ['6.jpg','Owner: Shopping list grouped by supplier, with money to bring'],
+  ['7.jpg','Owner: Receive delivery, copied from the supplier receipt'],
+  ['8.jpg','Owner: Stock card with expiry date and full history'],
+  ['9.jpg','Owner: Take out stock that is damaged, expired or used at home'],
+  ['10.jpg','Owner: Add item with a live profit summary'],
+  ['11.jpg','Owner: Sales, profit, payments and shifts report'],
+  ['12.jpg','Owner: Close the day with totals and past days']]},
+ {id:'library',problem:'Paper logbooks make it hard to track every book copy, borrower and overdue return, and borrowers have to visit just to check if a book is available.',result:'Every copy has its own serial number, overdue loans show up automatically, and borrowers can check availability and reserve books online for the librarian to approve.',type:['web'],icon:'📚',label:'Web system, 2 user roles',title:'Pagadian City Library System',desc:'Library management for Pagadian City Library with two roles. Admin handles books, members, borrowing, returns, logbook and Excel reports. Borrowers get their own portal to browse the catalog, reserve books and see their loans and fees.',tags:['PHP','MySQL','Capstone'],dir:'assets/projects/library/',shots:[
+  ['1.jpg','Admin: Dashboard with reservation requests to accept or deny'],
+  ['2.jpg','Admin: Book catalog with serial numbers'],
+  ['3.jpg','Admin: Members'],
+  ['4.jpg','Admin: Circulation reports with Excel export'],
+  ['5.jpg','Borrower: Home with notifications, reservations and current loans'],
+  ['6.jpg','Borrower: Browse the catalog and reserve an available book'],
+  ['7.jpg','Borrower: My loans and return history'],
+  ['8.jpg','Borrower: My fees and penalties']]},
+ {id:'energymeter',problem:"Households can't see which outlet or room is driving up the electric bill.",result:'Live voltage, current and kWh per channel, with an estimated bill and a printable monthly statement.',type:['iot'],icon:'⚡',label:'IoT system',title:'Energy Meter: Current, Voltage & Cost',desc:'A three channel ESP32 kWh meter with a live web dashboard: voltage, current, power, kWh, estimated bill, logs, and printable monthly cost reports.',tags:['ESP32','PHP','MySQL'],dir:'assets/projects/energymeter/',shots:[
+  ['1.jpg','Admin: Dashboard with live channels and monthly usage'],
+  ['2.jpg','Admin: Device information and 24 hour power'],
+  ['3.jpg','Admin: Logs data by room, device and month'],
+  ['4.jpg','Admin: Printable energy & cost statement']]},
+ {id:'lumisense',problem:'Broken streetlights often go unnoticed until someone reports them.',result:'Each light reports its own status, faults are flagged on the dashboard, and repairs and power costs are recorded.',type:['iot'],icon:'💡',label:'IoT system',title:'LumiSense: Smart Streetlights',desc:'IoT streetlight monitoring & alert system: live status, location map, light control, fault alerts, maintenance records and billing.',tags:['ESP32','PHP','IoT'],dir:'assets/projects/lumisense/',shots:[
+  ['1.jpg','Admin: Dashboard with streetlight overview and live readings'],
+  ['2.jpg','Admin: Individual light control panel'],
+  ['3.jpg','Admin: Maintenance and repair records'],
+  ['4.jpg','Admin: Power consumption and billing']]},
+ {id:'heatstress',problem:"People working outdoors can't tell when the heat becomes dangerous.",result:'Temperature, humidity and wind become a heat index with Safe, Warning, Danger and Critical alerts, plus a full history.',type:['iot'],icon:'🌡️',label:'IoT system',title:'Heat Stress Monitoring (IoT)',desc:'ESP32 sensors feeding a live PHP/MySQL dashboard with heat index risk levels, alerts, history, and CSV export.',tags:['ESP32','PHP','IoT'],dir:'assets/projects/heatstress/',shots:[
+  ['1.jpg','Admin: Live dashboard with heat index chart and alerts'],
+  ['2.jpg','Admin: History & logs with CSV export'],
+  ['3.jpg','Admin: Heat index alert levels and data logging settings'],
+  ['4.jpg','Admin: User management']]},
+ {id:'condivend',problem:'Selling condiments by hand is slow, and waste is hard to measure.',result:'Customers get an exact serving from the machine, while the operator sees tank levels, sales and refills from one dashboard.',type:['iot'],icon:'🧂',label:'IoT system',title:'CondiVend: Condiments Vending Machine',desc:'An ESP32 vending machine for soy sauce, vinegar and cooking oil, with an operator dashboard for tank levels, refills, pricing, calibration and sales reports.',tags:['ESP32','PHP','MySQL'],dir:'assets/projects/condivend/',shots:[
+  ['1.jpg','Operator: Machine overview, tanks and sales'],
+  ['2.jpg','Operator: Tank levels, refills and stock summary'],
+  ['3.jpg','Operator: Sales report'],
+  ['4.jpg','Operator: Products, prices and calibration']]},
+ {id:'egg',problem:'Incubating eggs by hand means checking temperature and humidity day and night.',result:'The ESP32 keeps temperature and humidity on target automatically, and every batch and hatch rate is recorded.',type:['iot'],icon:'🥚',label:'IoT system',title:'Egg Incubator Monitor',desc:'An incubator controlled by an ESP32, with a web dashboard: live temperature and humidity against targets, hatch batches, device controls, history and reports.',tags:['ESP32','PHP','IoT'],dir:'assets/projects/eggincubator/',shots:[
+  ['1.jpg','Admin: Dashboard with temperature, humidity and current batch'],
+  ['2.jpg','Admin: History & reports'],
+  ['3.jpg','Admin: Hatch batches and hatch rate'],
+  ['4.jpg','Admin: Device controls and targets']]},
+ {id:'quail',problem:'Feeding quail on time every day takes constant attention.',result:'Feeding runs on a schedule, the app shows how much feed is left, and missed feedings or faults raise alerts.',type:['iot','mobile'],phone:true,icon:'🐦',label:'IoT + mobile app',title:'Quail Feeder: Automated Feeding',desc:'An automatic feeder that runs on a schedule. The ESP32 dispenser is controlled from a mobile app, with schedules, feed level monitoring, dispensing logs and maintenance alerts.',tags:['ESP32','PHP','Mobile'],dir:'assets/projects/quailfeeder/',shots:[
+  ['1.jpg','Admin: Home with feed remaining and next feeding'],
+  ['2.jpg','Admin: Feeder list and schedules'],
+  ['3.jpg','Admin: More menu'],
+  ['4.jpg','Admin: Feed monitoring settings']]}
+];
+
+/* ===== Render project cards ===== */
+const grid=document.getElementById('projects');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+PROJECTS.forEach((p,idx)=>{
+  const n=p.shots.length, src=i=>p.dir+p.shots[i][0], med=i=>p.dir+'m/'+p.shots[i][0], thm=i=>p.dir+'t/'+p.shots[i][0];
+  const card=document.createElement('article'); card.className='pcard'+(idx===0?' feat':'')+(p.phone?' phone':''); card.dataset.type=p.type.join(' ');
+  card.innerHTML='<div class="pmedia">'+
+   (n? `<button class="pshot" type="button" aria-label="Open ${esc(p.title)} screenshots"><img src="${med(0)}" data-full="${src(0)}" alt="${esc(p.shots[0][1])}" loading="lazy" decoding="async" width="760" height="428"><span class="scount">${n} screens</span><span class="view">View screens</span></button>
+        <div class="thumbs">${p.shots.slice(0,4).map((s,i)=>{const more=(i===3&&n>4)?n-4:0; return `<button type="button" class="${i?'':'on'}" data-i="${i}" ${more?'data-more="1"':''} aria-label="${more?'View all '+n+' screens':'Show screen '+(i+1)}"><img src="${thm(i)}" alt="" loading="lazy" decoding="async" width="240" height="135" onerror="this.onerror=null;this.src='${src(i)}'">${more?`<span class="more">+${more}</span>`:''}</button>`}).join('')}</div>`
+      : `<div class="pshot empty"><small>Screenshots coming soon</small></div>`)+'</div>'+
+   `<div class="pbody"><p class="ptype">${esc(p.label)}</p><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p>${p.problem?`<details class="psr-wrap"><summary><span>Problem and result</span>${ICON_CHEV}</summary><div class="psr"><div class="pr"><b>Problem</b><p>${esc(p.problem)}</p></div><div class="rs"><b>Result</b><p>${esc(p.result)}</p></div></div></details>`:''}<ul class="tags">${p.tags.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>`;
+  if(n){
+    let cur=0; const main=card.querySelector('.pshot img'), ths=[...card.querySelectorAll('.thumbs button')];
+    const show=i=>{ cur=i; main.classList.add('swap'); setTimeout(()=>{main.dataset.full=src(i);main.src=med(i);main.alt=p.shots[i][1];main.classList.remove('swap');},180); ths.forEach((b,k)=>b.classList.toggle('on',k===i)); };
+    ths.forEach((b,i)=>b.addEventListener('click',()=> b.dataset.more ? openLB(p,3) : show(i)));
+    main.addEventListener('error',()=>{ if(main.src.indexOf('/m/')>-1) main.src=main.dataset.full; });
+    card.querySelector('.pshot').addEventListener('click',()=>openLB(p,cur));
+  }
+  grid.appendChild(card);
+});
+
+/* filters */
+document.querySelectorAll('.fchip').forEach(ch=>ch.addEventListener('click',()=>{
+  document.querySelectorAll('.fchip').forEach(c=>{c.classList.toggle('on',c===ch);c.setAttribute('aria-selected',c===ch);});
+  const f=ch.dataset.f;
+  grid.querySelectorAll('.pcard').forEach(c=>{ const show=f==='all'||c.dataset.type.split(' ').includes(f); c.classList.toggle('hide',!show); });
+}));
+
+/* ===== Lightbox ===== */
+const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'), lbCap=document.getElementById('lbCap'), lbDots=document.getElementById('lbDots');
+let lbP=null, lbI=0, lastFocus=null;
+function lbRender(){
+  const s=lbP.shots[lbI];
+  lbImg.src=lbP.dir+s[0]; lbImg.alt=s[1]; lbCap.textContent=s[1];
+  document.getElementById('lbTitle').textContent=lbP.title;
+  document.getElementById('lbSub').textContent='Screen '+(lbI+1)+' of '+lbP.shots.length;
+  lbDots.innerHTML=lbP.shots.map((_,i)=>`<button type="button" class="${i===lbI?'on':''}" data-i="${i}" aria-label="Go to screen ${i+1}"></button>`).join('');
+  const nx=new Image(); nx.src=lbP.dir+lbP.shots[(lbI+1)%lbP.shots.length][0];
+  const one=lbP.shots.length<2; ['lbPrev','lbNext'].forEach(id=>document.getElementById(id).style.display=one?'none':''); lbDots.style.display=one?'none':''; document.getElementById('lbSub').style.display=one?'none':'';
+}
+function openLB(p,i){ lbP=p; lbI=i; lastFocus=document.activeElement; lbRender(); lb.classList.add('open'); document.body.style.overflow='hidden'; document.getElementById('lbX').focus(); }
+function closeLB(){ lb.classList.remove('open'); document.body.style.overflow=''; if(lastFocus) lastFocus.focus(); }
+function lbStep(d){ lbI=(lbI+d+lbP.shots.length)%lbP.shots.length; lbRender(); }
+document.getElementById('lbX').addEventListener('click',closeLB);
+document.getElementById('lbPrev').addEventListener('click',()=>lbStep(-1));
+document.getElementById('lbNext').addEventListener('click',()=>lbStep(1));
+lbDots.addEventListener('click',e=>{const b=e.target.closest('button');if(b){lbI=+b.dataset.i;lbRender();}});
+lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
+addEventListener('keydown',e=>{ if(!lb.classList.contains('open')) return; if(e.key==='Tab'){ const f=[...lb.querySelectorAll('button')].filter(x=>x.offsetParent!==null); if(f.length){ const first=f[0], last=f[f.length-1]; if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();} else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();} else if(!lb.contains(document.activeElement)){e.preventDefault();first.focus();} } return; } if(e.key==='Escape') closeLB(); else if(e.key==='ArrowLeft') lbStep(-1); else if(e.key==='ArrowRight') lbStep(1); });
+let tx=null; lb.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+lb.addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) lbStep(dx<0?1:-1); tx=null; });
+
+/* ===== Packages (set price to e.g. 'From ₱15,000' to show a starting price) ===== */
+const PACKAGES=[
+ {name:'Website',price:'',desc:'A fast, phone friendly website for your business, school or organization.',items:['Modern responsive design','Contact form sent to your email','Domain and hosting setup','Basic search engine setup']},
+ {name:'Business System',hot:true,price:'',desc:'A custom web system for the daily work of your business.',items:['Inventory, sales or records','User roles and secure login','Reports with Excel and PDF export','Online payments if needed','Staff training and support']},
+ {name:'IoT Monitoring System',price:'',desc:'An ESP32 device with sensors, connected to a live web dashboard.',items:['Hardware wiring and programming','Live dashboard and history','Alerts on the dashboard','Reports and data export','Testing and documentation']},
+ {name:'Capstone System',price:'',desc:'Development help for your capstone system, from proposal to final defense.',items:['Web, mobile or IoT (ESP32) system','Database design and diagrams','Features based on your approved scope','Testing before your defense','Walkthrough so you can explain it']}
+];
+document.getElementById('pkgrid').innerHTML=PACKAGES.map(p=>`<div class="pkg${p.hot?' hot':''}">${p.hot?'<span class="flag">Recommended</span>':''}<h3>${esc(p.name)}</h3><div class="price">${p.price?esc(p.price):'Free quote'}<small>${p.price?'final price depends on your features':'tell me what you need'}</small></div><p>${esc(p.desc)}</p><ul>${p.items.map(i=>`<li>${ICON_CHECK}<span>${esc(i)}</span></li>`).join('')}</ul><a href="#contact" class="btn ${p.hot?'btn-teal':'btn-line'}">Get a quote</a></div>`).join('');
+
+/* ===== Testimonials: add real quotes only, e.g. {quote:'...', name:'Juan Dela Cruz', role:'Owner, Store'} ===== */
+const TESTIMONIALS=[];
+if(TESTIMONIALS.length){ const t=document.getElementById('testimonials'); t.hidden=false;
+  document.getElementById('tgrid').innerHTML=TESTIMONIALS.map(x=>`<div class="tcard"><q>${esc(x.quote)}</q><b>${esc(x.name)}</b><small>${esc(x.role||'')}</small></div>`).join(''); }
+
+/* ===== Demo video: put a file such as assets/demo.mp4 in the folder and set its path here ===== */
+const DEMO_VIDEO='';
+if(DEMO_VIDEO){ const v=document.getElementById('demoVideo'); v.hidden=false; v.innerHTML=`<video src="${DEMO_VIDEO}" controls playsinline preload="metadata"></video>`; }
+
+document.querySelectorAll('.certbtn').forEach(b=>b.addEventListener('click',()=>openLB({title:b.dataset.title,dir:'',shots:[[b.dataset.cert,b.dataset.title+' certificate']]},0)));
+
+/* ===== Mobile menu ===== */
+const menuBtn=document.getElementById('menuBtn'), mnav=document.getElementById('mnav');
+function setMenu(open){ menuBtn.setAttribute('aria-expanded',open); menuBtn.setAttribute('aria-label',open?'Close menu':'Open menu'); mnav.classList.toggle('open',open); nav.classList.toggle('menu-open',open); }
+menuBtn.addEventListener('click',()=>setMenu(menuBtn.getAttribute('aria-expanded')!=='true'));
+mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+addEventListener('keydown',e=>{ if(e.key==='Escape') setMenu(false); });
+
+/* ===== Highlight the current section in the menu ===== */
+const navMap={}; document.querySelectorAll('.navlinks a[href^="#"]:not(.btn)').forEach(a=>navMap[a.getAttribute('href').slice(1)]=a);
+const spy=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ Object.values(navMap).forEach(a=>a.classList.remove('active')); if(navMap[e.target.id]) navMap[e.target.id].classList.add('active'); } }),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(sec=>spy.observe(sec));
+
+/* ===== Back to top ===== */
+const totop=document.getElementById('totop');
+addEventListener('scroll',()=>totop.classList.toggle('show',scrollY>700),{passive:true});
+totop.addEventListener('click',()=>scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
+
+/* ===== Copy email ===== */
+const cb=document.getElementById('copyEmail'), cbLabel=cb.querySelector('span');
+cb.addEventListener('click',async()=>{ const em=cb.dataset.email; let ok=false;
+  try{ await navigator.clipboard.writeText(em); ok=true; }catch(e){ try{ const t=document.createElement('textarea'); t.value=em; document.body.appendChild(t); t.select(); ok=document.execCommand('copy'); t.remove(); }catch(_){} }
+  cbLabel.textContent= ok ? 'Copied' : em; cb.classList.toggle('done',ok); setTimeout(()=>{cbLabel.textContent='Copy';cb.classList.remove('done');},2200); });
+
+/* ===== Hero headline: highlighted word that changes (starts when the welcome screen closes) ===== */
+const ROTATE_WORDS=['system','web app','mobile app','dashboard','IoT system'], ROTATE_MS=2600;
+let rotTimer=null;
+function startRotate(){
+  const el=document.getElementById('rotate');
+  if(!el||reduce||rotTimer) return;
+  let i=0;
+  rotTimer=setInterval(()=>{ el.classList.add('out'); setTimeout(()=>{ i=(i+1)%ROTATE_WORDS.length; el.textContent=ROTATE_WORDS[i]; el.classList.remove('out'); },300); },ROTATE_MS);
+}
+
+/* ===== Welcome animation (plays on every page load; Skip button available) ===== */
+(function(){
+  const w=document.getElementById('welcome');
+  const finish=()=>{ document.body.classList.remove('loading'); startRotate(); };
+  if(!w||reduce){ if(w) w.remove(); finish(); return; }
+  const words=['Hello','Good day','Welcome'], g=document.getElementById('wgreet');
+  let i=0, done=false;
+  const next=()=>{ if(done||i>=words.length) return; g.innerHTML='<span class="wword">'+words[i]+'!</span>'; i++; if(i<words.length) setTimeout(next,1000); };
+  setTimeout(next,500);
+  const out=()=>{ if(done) return; done=true; w.classList.add('done'); setTimeout(finish,350); setTimeout(()=>w.remove(),1500); };
+  setTimeout(out,7000);
+  document.getElementById('wskip').addEventListener('click',out);
+})();
+</script>
+</body>
+</html>
